@@ -3,7 +3,7 @@ services:
     container_name: marzban
     image: gozargah/marzban:v0.2.6
     restart: always
-    env_file: env
+    env_file: .env
     environment:
       SQLALCHEMY_DATABASE_URL: "sqlite:////data/db.sqlite3"
       XRAY_JSON: "/xray_config.json"
@@ -28,6 +28,17 @@ services:
       - /etc/xray/xray.key:/etc/xray/xray.key:ro
       - /home/vps/public_html:/home/vps/public_html
     depends_on:
+      - marzban
+    networks:
+      - marzban_net
+
+  cloudflared:
+    image: cloudflare/cloudflared:latest
+    env_file: .env
+    restart: always
+    command: tunnel --no-autoupdate run --token ${TUNNEL_TOKEN}
+    depends_on:
+      - nginx
       - marzban
     networks:
       - marzban_net

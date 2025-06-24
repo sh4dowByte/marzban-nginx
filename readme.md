@@ -1,4 +1,3 @@
-
 ## 🧩 Marzban + Nginx
 
 **Marzban + Nginx Reverse Proxy** in Docker 🐳
@@ -24,7 +23,7 @@ This repository provides a complete setup using **Docker Compose** to run [Marzb
 ├── docker-compose.yml         # Main Docker Compose file
 ├── nginx.conf                 # Main Nginx configuration
 ├── xray.conf                  # Reverse proxy virtual host for all protocols
-├── marzban/                
+├── marzban/              
 │   └── xray_config.json       # Xray configuration (VMess, VLESS, etc.)
 ```
 
@@ -49,7 +48,7 @@ Want to access your **Marzban panel** securely without exposing ports? Use **Clo
 
 ### 🌐 Example:
 
-![1750771085975](image/readme/1750771085975.png)
+![1750776621240](image/readme/1750776621240.png)
 
 Access Marzban at:
 
@@ -63,7 +62,7 @@ https://YOUR_DOMAIN/dashboard
 
 | VMESS                                          | VLESS                                          | TROJAN                                         |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
-| ![1750772197165](image/readme/1750772197165.png) | ![1750772223378](image/readme/1750772223378.png) | ![1750772237817](image/readme/1750772237817.png) |
+| ![1750776686305](image/readme/1750776686305.png) | ![1750776700384](image/readme/1750776700384.png) | ![1750776717274](image/readme/1750776717274.png) |
 
 ---
 

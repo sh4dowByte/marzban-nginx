@@ -1,4 +1,0 @@
-SUDO_USERNAME = "admin"
-SUDO_PASSWORD = "admin"
-
-UVICORN_PORT = 8880

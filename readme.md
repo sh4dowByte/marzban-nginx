@@ -33,7 +33,7 @@ This repository provides a complete setup using **Docker Compose** to run [Marzb
 ### 🚀 How to Use
 
 ```bash
-git clone https://github.com/yourname/marzban-nginx.git
+git clone https://github.com/sh4dowByte/marzban-nginx.git
 cd marzban-nginx
 docker compose up -d
 ```

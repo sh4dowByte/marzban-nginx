@@ -73,6 +73,13 @@ https://YOUR_DOMAIN/dashboard
 * 🎯 **Custom Path**: Run the panel under a subpath like `/dashboard`
 * 💡 **Cost-Effective**: No need for static IP or premium VPS
 
+### ⚠️ Cons:
+
+* 🕓  **Slight Latency Overhead** : Requests go through Cloudflare’s edge, adding a small delay compared to direct IP access
+* 🔧  **Tunnel Dependency** : If the Cloudflare Tunnel fails, access to your panel is lost (unless you expose it directly too)
+* 🔒  **Cloudflare Account Required** : You must have a Cloudflare account and configure a domain or use a token
+* 🧪  **Debugging Complexity** : Troubleshooting reverse proxy or path issues can be more complex compared to direct hosting
+
 ---
 
 ### 🙏 Special Thanks

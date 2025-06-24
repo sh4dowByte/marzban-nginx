@@ -1,81 +1,91 @@
+
 ## 🧩 Marzban + Nginx
 
 **Marzban + Nginx Reverse Proxy** in Docker 🐳
 
-Repositori ini berisi setup lengkap menggunakan **Docker Compose** untuk menjalankan [Marzban](https://github.com/Gozargah/Marzban) (panel manajemen Xray) dengan dukungan **reverse proxy Nginx** dan  **sertifikat SSL** .
-
-### ✨ Fitur
-
-* 🔐 Reverse proxy Nginx untuk mengatur trafik VMess, VLESS, Trojan, Shadowsocks
-* 📊 Panel Marzban yang bisa diakses melalui port publik (`8899`)
-* 🌐 Akses protokol Xray hanya lewat reverse proxy (tidak expose port mentah)
-* 📦 Konfigurasi persistensi agar data tidak hilang meski `docker compose down`
-* 🔧 Kompatibel untuk server tanpa IP publik, bisa digabungkan dengan Cloudflare Tunnel (opsional)
+This repository provides a complete setup using **Docker Compose** to run [Marzban](https://github.com/Gozargah/Marzban) (an Xray management panel) with **Nginx reverse proxy** and **SSL certificate** support.
 
 ---
 
-### 📁 Struktur Folder
+### ✨ Features
+
+* 🔐 Nginx reverse proxy for managing VMess, VLESS, Trojan, and Shadowsocks traffic
+* 📊 Marzban panel accessible via a public port (`8899`)
+* 🌐 Xray protocol access only via reverse proxy (no raw port exposure)
+* 📦 Persistent configuration to ensure data remains safe even after `docker compose down`
+* 🔧 Compatible with servers without public IPs, optionally integrates with **Cloudflare Tunnel**
+
+---
+
+### 📁 Folder Structure
 
 ```
 .
-├── docker-compose.yml         # File utama Docker Compose
-├── nginx.conf                 # Konfigurasi utama Nginx
-├── xray.conf                  # Virtual host reverse proxy untuk semua protokol
-├── marzban/      
-│   └── xray_config.json       # Konfigurasi Xray (VMess, VLESS, dll)
+├── docker-compose.yml         # Main Docker Compose file
+├── nginx.conf                 # Main Nginx configuration
+├── xray.conf                  # Reverse proxy virtual host for all protocols
+├── marzban/                
+│   └── xray_config.json       # Xray configuration (VMess, VLESS, etc.)
 ```
 
 ---
 
-### 🚀 Cara Penggunaan
+### 🚀 How to Use
 
 ```bash
-git clone https://github.com/kamu/marzban-nginx.git
+git clone https://github.com/yourname/marzban-nginx.git
 cd marzban-nginx
 docker compose up -d
 ```
 
-* Panel Marzban: `http://IP-SERVER:8899`
-* Protokol Xray: Lewat path reverse proxy `/vmess`, `/vless`, dll.
+* Access Marzban panel: `http://YOUR-SERVER-IP:8899`
+* Access Xray protocols via proxy paths like `/vmess`, `/vless`, etc.
 
 ---
 
-## ☁️ Akses Marzban Aman & Mudah via Cloudflare Tunnel
+## ☁️ Secure & Easy Access to Marzban via Cloudflare Tunnel
 
-Ingin mengakses **panel Marzban** tanpa membuka port dan tetap aman di balik Cloudflare? Gunakan **Cloudflare Tunnel** dengan setting path seperti ini:
+Want to access your **Marzban panel** securely without exposing ports? Use **Cloudflare Tunnel** with a subpath like:
 
-### 🌐 Contoh:
+### 🌐 Example:
 
 ![1750771085975](image/readme/1750771085975.png)
-Akses Marzban di:
+
+Access Marzban at:
 
 ```
 https://YOUR_DOMAIN/dashboard
 ```
 
-### ⚙️ Settings Marzban Panel:
+---
+
+### ⚙️ Marzban Panel Settings Example:
 
 | VMESS                                          | VLESS                                          | TROJAN                                         |
 | ---------------------------------------------- | ---------------------------------------------- | ---------------------------------------------- |
 | ![1750772197165](image/readme/1750772197165.png) | ![1750772223378](image/readme/1750772223378.png) | ![1750772237817](image/readme/1750772237817.png) |
 
-### ✨ Kelebihan:
+---
 
-* 🔒  **Aman** : Tidak perlu expose port 80/443 secara langsung
-* ☁️  **Stabil** : Lewat jaringan Cloudflare, cocok untuk server tanpa IP publik
-* 🎯  **Custom Path** : Panel Marzban bisa ditempatkan di subpath seperti `/dashboard`
-* 💡  **Hemat biaya** : Tanpa perlu beli IP statik atau VPS premium
+### ✨ Benefits:
 
-### 🙏 Special Thanks
-
-Project ini terinspirasi dan banyak terbantu dari:
-
-🔗 **[Agunxzzz/MarXray](https://github.com/Agunxzzz/MarXray/tree/main)**
-
-Repositori luar biasa yang menyediakan konfigurasi lengkap Marzban + Nginx + Xray, sangat membantu dalam membangun integrasi otomatis dan struktur sistem reverse proxy yang stabil.
+* 🔒 **Secure**: No need to expose port 80/443 publicly
+* ☁️ **Reliable**: Leverages Cloudflare’s infrastructure — perfect for servers without public IPs
+* 🎯 **Custom Path**: Run the panel under a subpath like `/dashboard`
+* 💡 **Cost-Effective**: No need for static IP or premium VPS
 
 ---
 
-> Terima kasih untuk kontribusi komunitas yang terus memperkuat ekosistem open-source Xray dan Marzban! 💪🚀
+### 🙏 Special Thanks
+
+This project was inspired by and greatly benefited from:
+
+🔗 **[Agunxzzz/MarXray](https://github.com/Agunxzzz/MarXray/tree/main)**
+
+An excellent repository that provides a full setup of Marzban + Nginx + Xray, helping lay the foundation for this project’s automatic integration and robust reverse proxy structure.
+
+---
+
+> Thanks to the open-source community for continuously strengthening the Xray and Marzban ecosystem! 💪🚀
 
 ---

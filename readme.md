@@ -23,22 +23,9 @@ This repository provides a complete setup using **Docker Compose** to run [Marzb
 ├── docker-compose.yml         # Main Docker Compose file
 ├── nginx.conf                 # Main Nginx configuration
 ├── xray.conf                  # Reverse proxy virtual host for all protocols
-├── marzban/          
+├── marzban/      
 │   └── xray_config.json       # Xray configuration (VMess, VLESS, etc.)
 ```
-
----
-
-### 🚀 How to Use
-
-```bash
-git clone https://github.com/sh4dowByte/marzban-nginx.git
-cd marzban-nginx
-docker compose up -d
-```
-
-* Access Marzban panel: `http://YOUR-SERVER-IP:8899`
-* Access Xray protocols via proxy paths like `/vmess`, `/vless`, etc.
 
 ---
 
@@ -50,8 +37,6 @@ Clone this repository and start the services:
 git clone https://github.com/sh4dowByte/marzban-nginx.git
 cd marzban-nginx
 ```
-
----
 
 ## 🔐 Using SSL (Certbot)
 
@@ -81,7 +66,6 @@ CERTBOT_HOSTNAME=your.hostname.com
 CERTBOT_EMAIL=your@email.com
 ```
 
----
 
 ## ☁️ Using Cloudflare Tunnel
 
@@ -96,6 +80,8 @@ Ensure your `.env` file contains your Cloudflare Tunnel token:
 ```env
 TUNNEL_TOKEN=your_cloudflare_token
 ```
+
+---
 
 ## ☁️ Secure & Easy Access to Marzban via Cloudflare Tunnel
 

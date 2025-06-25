@@ -23,7 +23,7 @@ This repository provides a complete setup using **Docker Compose** to run [Marzb
 ├── docker-compose.yml         # Main Docker Compose file
 ├── nginx.conf                 # Main Nginx configuration
 ├── xray.conf                  # Reverse proxy virtual host for all protocols
-├── marzban/              
+├── marzban/          
 │   └── xray_config.json       # Xray configuration (VMess, VLESS, etc.)
 ```
 
@@ -42,13 +42,68 @@ docker compose up -d
 
 ---
 
+## 🚀 Quick Start
+
+Clone this repository and start the services:
+
+```bash
+git clone https://github.com/sh4dowByte/marzban-nginx.git
+cd marzban-nginx
+```
+
+---
+
+## 🔐 Using SSL (Certbot)
+
+To automatically obtain and install an SSL certificate from Let's Encrypt:
+
+```bash
+docker compose up certbot
+```
+
+Once completed, the SSL files will be available at:
+
+```bash
+./cert/xray/xray.crt
+./cert/xray/xray.key
+```
+
+Then start the services:
+
+```bash
+docker compose up -d marzban nginx
+```
+
+Make sure your `.env` file is configured:
+
+```env
+CERTBOT_HOSTNAME=your.hostname.com
+CERTBOT_EMAIL=your@email.com
+```
+
+---
+
+## ☁️ Using Cloudflare Tunnel
+
+To run Marzban + Nginx + Cloudflare Tunnel (without exposing public ports):
+
+```bash
+docker compose up -d marzban nginx cloudflared
+```
+
+Ensure your `.env` file contains your Cloudflare Tunnel token:
+
+```env
+TUNNEL_TOKEN=your_cloudflare_token
+```
+
 ## ☁️ Secure & Easy Access to Marzban via Cloudflare Tunnel
 
 Want to access your **Marzban panel** securely without exposing ports? Use **Cloudflare Tunnel** with a subpath like:
 
 ### 🌐 Example:
 
-![1750776621240](image/readme/1750776621240.png)
+![1750807168500](image/readme/1750807168500.png)
 
 Access Marzban at:
 
